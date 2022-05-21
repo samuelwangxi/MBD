@@ -48,9 +48,6 @@ class AdFair(Module):
         #     )
 
     def apply_filter(self, vectors, filter_mask):
-        '''
-        filter_mask: 伯努利分布随机抽取feature作为该用户的敏感feature, format ndarray, np.random.choice([0, 1], size=(filter_num,))
-        '''
         if self.filter_mode == 'separate':
             filter_mask = np.asarray(filter_mask)
             idx = filter_mask.dot(2 ** np.arange(filter_mask.size))
